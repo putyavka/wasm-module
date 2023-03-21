@@ -1,0 +1,13 @@
+{
+    "name": "wasm-project",
+    "scripts": {
+        "build:emscripten": "docker run --rm -v %cd%:/src trzeci/emscripten ./build.sh",
+        "build:app": "copyfiles index.html wasm-wrap.js dist",
+        "build": "npm run build:emscripten && npm run build:app",
+        "serve": "http-server -c0 dist"
+    },
+    "devDependencies": {
+        "copyfiles": "^2.4.1",
+        "http-server": "*"
+    }
+}

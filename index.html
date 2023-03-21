@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<script type="module">
+    import wrap from "./wasm-wrap.js";
+    wrap.then(function(module) {
+        module.sayHello();
+        const x = 23;
+        const y = 19;
+        console.log('add(' + x + ', ' + y + ')=' + module.add(x, y));
+        const a = [2, 5, 8];
+        const b = [3, 6, 9];
+        console.log(a, '+', b, '=', module.addArrays(a, b));
+    })
+</script>
